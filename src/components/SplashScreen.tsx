@@ -96,7 +96,7 @@ export const SplashScreen = ({ onComplete }: SplashScreenProps) => {
 
         {/* App Title */}
         <div className="space-y-6">
-          <h1 className="text-8xl font-bold bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 bg-clip-text  aniate-shimmer drop-shadow-2xl">
+          <h1 className="text-lg font-bold bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-600 bg-clip-text  aniate-shimmer drop-shadow-2xl">
             EmoStory
           </h1>
           <p className="text-3xl text-blue-600 font-medium animate-fade-in animate-pulse-grow" style={{ animationDelay: '0.3s' }}>

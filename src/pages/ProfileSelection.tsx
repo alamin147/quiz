@@ -70,39 +70,41 @@ const ProfileSelection = () => {
       </div>
 
       {/* Header */}
-      <div className="flex justify-between items-center mb-8 relative z-10">
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 sm:mb-8 relative z-10 gap-4">
         <Button
           variant="ghost"
           size="lg"
           onClick={() => navigate("/")}
-          className="bg-white/80 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 text-gray-700 hover:text-blue-600"
+          className="bg-white/80 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 text-gray-700 hover:text-blue-600 w-full sm:w-auto justify-center sm:justify-start"
           aria-label="Go back to welcome screen"
         >
-          <ArrowLeft className="w-6 h-6 mr-2" />
+          <ArrowLeft className="w-3 h-3 mr-2" />
           Back
         </Button>
 
-        <div className="flex space-x-3">
+        <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3 w-full sm:w-auto">
           <Button
             variant="ghost"
             size="lg"
             onClick={handleSettings}
-            className="bg-white/80 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 text-blue-700 hover:text-blue-800"
+            className="bg-white/80 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 text-blue-700 hover:text-blue-800 w-full sm:w-auto justify-center sm:justify-start"
             aria-label="Settings"
           >
-            <Settings className="w-6 h-6 mr-2" />
-            Settings
+            <Settings className="w-4 h-4 sm:w-6 sm:h-6 mr-2" />
+            <span className="hidden sm:inline">Settings</span>
+            <span className="sm:hidden">Settings</span>
           </Button>
 
           <Button
             variant="ghost"
             size="lg"
             onClick={handleParentLogin}
-            className="bg-white/80 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 text-indigo-700 hover:text-indigo-800"
+            className="bg-white/80 hover:bg-white shadow-lg hover:shadow-xl transition-all duration-300 text-indigo-700 hover:text-indigo-800 w-full sm:w-auto justify-center sm:justify-start"
             aria-label="Parent and therapist login"
           >
-            <Lock className="w-5 h-5 mr-2" />
-            Parent Login
+            <Lock className="w-4 h-4 sm:w-5 sm:h-5 mr-2" />
+            <span className="hidden sm:inline">Parent Login</span>
+            <span className="sm:hidden">Parent</span>
           </Button>
         </div>
       </div>

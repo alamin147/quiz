@@ -431,14 +431,13 @@ const ScenarioPlay = () => {
               <Button
                 size="lg"
                 onClick={handlePlayAnother}
-                className="w-full mb-2 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white text-xl py-4 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
-              >
-                Play Another Story 📚
+                className="w-full mb-2 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white  py-4 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 text-xs md:text-md"
+              >Play Another Story
               </Button>
               <Button
                 variant="outline"
                 onClick={handleGoHome}
-                className="border-2 border-blue-300 text-blue-600 hover:bg-blue-50 rounded-2xl"
+                className="border-2 border-blue-300 text-blue-600 hover:bg-blue-50 rounded-2xl text-xs md:text-md"
               >
                 <Home className="w-4 h-4 mr-2" />
                 Choose Different Profile

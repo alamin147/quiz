@@ -12,20 +12,20 @@ import { toast } from "sonner";
 
 const Settings = () => {
   const navigate = useNavigate();
-  const { 
-    textToSpeech, 
-    talkOverVoice, 
-    narrationSpeed, 
+  const {
+    textToSpeech,
+    talkOverVoice,
+    narrationSpeed,
     textSize,
     enableFacialRecognition,
-    setTextToSpeech, 
-    setTalkOverVoice, 
+    setTextToSpeech,
+    setTalkOverVoice,
     setNarrationSpeed,
     setTextSize,
     setEnableFacialRecognition,
     speak
   } = useAccessibility();
-  
+
   const { profiles, deleteProfile } = useProfiles();
   const [activeTab, setActiveTab] = useState<'accessibility' | 'profiles' | 'privacy'>('accessibility');
   const [facialSensitivity, setFacialSensitivity] = useState([75]);
@@ -106,7 +106,7 @@ const Settings = () => {
                 <Eye className="w-5 h-5" />
                 Basic Accessibility
               </h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <div className="space-y-1">
@@ -177,7 +177,7 @@ const Settings = () => {
                 <Volume2 className="w-5 h-5" />
                 Audio Settings
               </h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <div className="space-y-1">
@@ -210,7 +210,7 @@ const Settings = () => {
           <div className="space-y-6">
             <Card className="p-6 shadow-card">
               <h3 className="text-lg font-semibold mb-4">Child Profiles</h3>
-              
+
               {profiles.length > 0 ? (
                 <div className="space-y-4">
                   {profiles.map((profile) => (
@@ -259,7 +259,7 @@ const Settings = () => {
                 <Camera className="w-5 h-5" />
                 Facial Recognition Settings
               </h3>
-              
+
               <div className="space-y-6">
                 <div className="flex items-center justify-between">
                   <div className="space-y-1">
@@ -318,18 +318,18 @@ const Settings = () => {
                 <HelpCircle className="w-5 h-5" />
                 Help & Support
               </h3>
-              
+
               <div className="space-y-4">
                 <Button variant="outline" className="w-full justify-start">
                   <HelpCircle className="w-4 h-4 mr-2" />
                   View User Guide
                 </Button>
-                
+
                 <Button variant="outline" className="w-full justify-start">
                   <Volume2 className="w-4 h-4 mr-2" />
                   Contact Support
                 </Button>
-                
+
                 <div className="p-4 bg-muted/50 rounded-lg">
                   <h4 className="font-medium mb-2">About EmoStory</h4>
                   <p className="text-sm text-muted-foreground">
@@ -348,12 +348,12 @@ const Settings = () => {
             <Button
               variant="outline"
               onClick={() => speak("This is a test of the text-to-speech feature. Hello!")}
-              className="w-full"
+              className=" text-xs md:text-md w-full"
             >
               <Volume2 className="w-4 h-4 mr-2" />
               Test Text-to-Speech
             </Button>
-            
+
             <Button
               variant="outline"
               onClick={() => {
@@ -363,7 +363,7 @@ const Settings = () => {
                 utterance.rate = narrationSpeed;
                 speechSynthesis.speak(utterance);
               }}
-              className="w-full"
+              className="w-full  text-xs md:text-md"
             >
               <Eye className="w-4 h-4 mr-2" />
               Test Enhanced Narration

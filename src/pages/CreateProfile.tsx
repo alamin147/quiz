@@ -115,8 +115,8 @@ const CreateProfile = () => {
                   className={`
                     w-16 h-16 rounded-xl text-3xl flex items-center justify-center
                     transition-all duration-200 transform hover:scale-110
-                    ${selectedAvatar === avatar 
-                      ? 'bg-gradient-primary shadow-glow ring-4 ring-primary/30' 
+                    ${selectedAvatar === avatar
+                      ? 'bg-gradient-primary shadow-glow ring-4 ring-primary/30'
                       : 'bg-muted hover:bg-secondary'
                     }
                   `}
@@ -144,7 +144,7 @@ const CreateProfile = () => {
               size="child"
               onClick={handleCreateProfile}
               disabled={!name.trim() || !selectedAvatar}
-              className="w-full"
+              className="w-full  text-xs md:text-md"
             >
               {name && selectedAvatar ? (
                 <>Let's Play, {name}! 🎉</>
@@ -152,7 +152,7 @@ const CreateProfile = () => {
                 "Complete Your Profile"
               )}
             </Button>
-            
+
             {(!name.trim() || !selectedAvatar) && (
               <p className="text-muted-foreground text-sm mt-2">
                 {!name.trim() ? "Enter your name" : "Choose an avatar"} to continue
