@@ -14,7 +14,9 @@ const ProfileSelection = () => {
 
   useEffect(() => {
     speak("Who is playing today? Choose your profile or create a new one!");
-    speakDescription("Profile selection screen with child avatars and options for parents");
+    speakDescription(
+      "Profile selection screen with child avatars and options for parents"
+    );
   }, [speak, speakDescription]);
 
   const handleProfileSelect = (profile: any) => {
@@ -43,9 +45,30 @@ const ProfileSelection = () => {
 
   // Mock profile data with diverse characters - updated with bluish color scheme
   const mockProfiles = [
-    { id: '1', name: 'Alex', avatar: '👦', color: 'from-blue-400 to-blue-600', progress: 75, lastPlayed: 'Sharing Stories' },
-    { id: '2', name: 'Maya', avatar: '👧', color: 'from-indigo-400 to-indigo-600', progress: 90, lastPlayed: 'Making Friends' },
-    { id: '3', name: 'Sam', avatar: '🧒', color: 'from-blue-500 to-indigo-500', progress: 60, lastPlayed: 'Big Feelings' },
+    {
+      id: "1",
+      name: "Alex",
+      avatar: "👦",
+      color: "from-blue-400 to-blue-600",
+      progress: 75,
+      lastPlayed: "Sharing Stories",
+    },
+    {
+      id: "2",
+      name: "Maya",
+      avatar: "👧",
+      color: "from-indigo-400 to-indigo-600",
+      progress: 90,
+      lastPlayed: "Making Friends",
+    },
+    {
+      id: "3",
+      name: "Sam",
+      avatar: "🧒",
+      color: "from-blue-500 to-indigo-500",
+      progress: 60,
+      lastPlayed: "Big Feelings",
+    },
   ];
 
   const allProfiles = profiles.length > 0 ? profiles : mockProfiles;
@@ -64,7 +87,7 @@ const ProfileSelection = () => {
               animationDelay: `${i * 1.2}s`,
             }}
           >
-            {['⭐', '🌟', '💫', '✨', '💙', '�'][i]}
+            {["⭐", "🌟", "💫", "✨", "💙", "�"][i]}
           </div>
         ))}
       </div>
@@ -128,59 +151,41 @@ const ProfileSelection = () => {
             <Card
               key={profile.id}
               className={`relative overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl group animate-fade-in bg-white rounded-3xl shadow-lg border-2 border-blue-200 hover:border-blue-400 ${
-                selectedProfile === profile.id ? 'scale-105 shadow-2xl ring-4 ring-blue-400' : ''
+                selectedProfile === profile.id
+                  ? "scale-105 shadow-2xl ring-4 ring-blue-400"
+                  : ""
               }`}
               style={{ animationDelay: `${index * 0.2}s` }}
               onClick={() => handleProfileSelect(profile)}
             >
               {/* Top Section - Avatar and Main Info */}
-              <div className={`bg-gradient-to-br ${profile.color} p-8 text-center text-white relative rounded-t-3xl`}>
+              <div
+                className={`bg-gradient-to-br ${profile.color} p-8 text-center text-white relative rounded-t-3xl`}
+              >
                 {/* Avatar */}
                 <div className="text-8xl mb-4 animate-bounce-gentle group-hover:animate-pulse-grow filter drop-shadow-lg">
                   {profile.avatar}
                 </div>
 
                 {/* Name */}
-                <h3 className="text-blue-600 text-3xl font-bold mb-2 drop-shadow-md">{profile.name}</h3>
-
-                {/* Progress Stars */}
-                <div className="flex justify-center space-x-1 mb-3  ">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className={`w-5 h-5 ${
-                        i < Math.floor(profile.progress / 20) ? 'text-yellow-300 fill-current' : 'text-white/50'
-                      }`}
-                    />
-                  ))}
-                </div>
-
-                {/* Last Played */}
-                <p className="text-white/90 text-sm font-medium">
-                  Last: {profile.lastPlayed}
-                </p>
+                <h3 className="text-blue-600 text-3xl font-bold mb-2 drop-shadow-md">
+                  {profile.name}
+                </h3>
 
                 {/* Decorative elements */}
                 <div className="absolute -top-2 -right-2 text-3xl opacity-70 animate-wiggle">
                   ✨
                 </div>
-                <div className="absolute -bottom-2 -left-2 text-3xl opacity-70 animate-wiggle" style={{ animationDelay: '1s' }}>
+                <div
+                  className="absolute -bottom-2 -left-2 text-3xl opacity-70 animate-wiggle"
+                  style={{ animationDelay: "1s" }}
+                >
                   💫
                 </div>
               </div>
 
               {/* Bottom Section - Progress Bar */}
               <div className="bg-white p-6 rounded-b-3xl">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-blue-600 font-semibold">Progress</span>
-                  <span className="text-2xl font-bold text-indigo-600">{profile.progress}%</span>
-                </div>
-                <div className="w-full bg-blue-100 rounded-full h-4 shadow-inner">
-                  <div
-                    className={`bg-gradient-to-r ${profile.color} h-4 rounded-full transition-all duration-500 shadow-sm`}
-                    style={{ width: `${profile.progress}%` }}
-                  />
-                </div>
                 <p className="text-center mt-3 text-blue-500 font-medium">
                   Tap to continue! 🚀
                 </p>
@@ -190,7 +195,7 @@ const ProfileSelection = () => {
 
           {/* Add New Profile Card */}
           <Card
-            className="relative overflow-hidden cursor-pointer transition-all duration-300 hover:scale-105 hover:shadow-2xl group border-3 border-dashed border-blue-300 hover:border-blue-500 animate-fade-in bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl"
+            className="relative overflow-hidden cursor-pointer transition-all duration-300 shadow-xl  hover:scale-105 hover:shadow-2xl group border-2  border-blue-300 hover:border-blue-500 animate-fade-in bg-gradient-to-br from-blue-50 to-blue-100 rounded-3xl"
             style={{ animationDelay: `${allProfiles.length * 0.2}s` }}
             onClick={handleCreateProfile}
           >
@@ -201,17 +206,8 @@ const ProfileSelection = () => {
               </div>
 
               <h3 className="text-3xl font-bold text-blue-600 group-hover:text-blue-700 transition-colors duration-300 mb-2 drop-shadow-sm">
-                Add New Friend!
+                Add New Profile!
               </h3>
-
-              <div className="flex justify-center space-x-1 mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-5 h-5 text-blue-300 opacity-50"
-                  />
-                ))}
-              </div>
 
               <p className="text-blue-500 text-sm font-medium">
                 Ready to start!
@@ -221,20 +217,16 @@ const ProfileSelection = () => {
               <div className="absolute -top-2 -right-2 text-3xl opacity-50 animate-wiggle group-hover:opacity-100 transition-opacity duration-300">
                 🌟
               </div>
-              <div className="absolute -bottom-2 -left-2 text-3xl opacity-50 animate-wiggle group-hover:opacity-100 transition-opacity duration-300" style={{ animationDelay: '1s' }}>
+              <div
+                className="absolute -bottom-2 -left-2 text-3xl opacity-50 animate-wiggle group-hover:opacity-100 transition-opacity duration-300"
+                style={{ animationDelay: "1s" }}
+              >
                 ✨
               </div>
             </div>
 
             {/* Bottom Section */}
             <div className="bg-white p-6 rounded-b-3xl">
-              <div className="flex items-center justify-between mb-3">
-                <span className="text-blue-600 font-semibold">Create Profile</span>
-                <span className="text-2xl font-bold text-indigo-600">New!</span>
-              </div>
-              <div className="w-full bg-blue-100 rounded-full h-4 shadow-inner">
-                <div className="bg-gradient-to-r from-blue-300 to-indigo-300 h-4 rounded-full w-0 group-hover:w-full transition-all duration-1000 shadow-sm" />
-              </div>
               <p className="text-center mt-3 text-blue-500 font-medium">
                 Start your journey! 🎉
               </p>
@@ -243,12 +235,19 @@ const ProfileSelection = () => {
         </div>
 
         {/* Character mascot encouragement */}
-        <div className="text-center animate-fade-in" style={{ animationDelay: '1s' }}>
+        <div
+          className="text-center animate-fade-in"
+          style={{ animationDelay: "1s" }}
+        >
           <div className="inline-flex items-center bg-white/90 rounded-3xl p-6 shadow-xl">
             <div className="text-5xl mr-4 animate-wiggle">😊</div>
             <div className="text-left">
-              <p className="text-xl font-semibold text-blue-700">Ready for an adventure?</p>
-              <p className="text-blue-600">Pick your profile and let's learn together!</p>
+              <p className="text-xl font-semibold text-blue-700">
+                Ready for an adventure?
+              </p>
+              <p className="text-blue-600">
+                Pick your profile and let's learn together!
+              </p>
             </div>
           </div>
         </div>
