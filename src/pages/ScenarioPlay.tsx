@@ -273,7 +273,7 @@ const ScenarioPlay = () => {
             <Button
               size="lg"
               onClick={() => setGameState('choices')}
-              className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white text-xl py-4 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+              className="w-full bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white text-xl py-4 rounded-2xl shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300  text-xs md:text-md"
             >
               <Play className="w-5 h-5 mr-2" />
               What would you do? ✨

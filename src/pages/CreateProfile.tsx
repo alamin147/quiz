@@ -18,12 +18,24 @@ const CreateProfile = () => {
   const [name, setName] = useState("");
   const [selectedAvatar, setSelectedAvatar] = useState("");
   const { addProfile } = useProfiles();
-  const { speak, speakDescription } = useAccessibility();
+  const { speak, speakDescription, textToSpeech, talkOverVoice } = useAccessibility();
 
   useEffect(() => {
-    speak("Let's create your profile! What's your name, superstar?");
-    speakDescription("Profile creation screen with name input and avatar selection");
-  }, [speak, speakDescription]);
+    // Check TTS support
+    const ttsSupported = 'speechSynthesis' in window;
+    console.log('TTS Support Check:', {
+      ttsSupported,
+      textToSpeech,
+      talkOverVoice,
+      speechSynthesis: window.speechSynthesis
+    });
+
+    // Wait a moment for speech synthesis to initialize
+    setTimeout(() => {
+      speak("Let's create your profile! What's your name, superstar?");
+      speakDescription("Profile creation screen with name input and avatar selection");
+    }, 500);
+  }, [speak, speakDescription, textToSpeech, talkOverVoice]);
 
   const handleCreateProfile = () => {
     if (!name.trim()) {
@@ -73,12 +85,29 @@ const CreateProfile = () => {
           <p className="text-xl text-muted-foreground">
             Tell us about yourself so we can start your adventure!
           </p>
+
+          {/* TTS Status Indicator */}
+          <div className="mt-4 flex justify-center">
+            <div className={`px-3 py-1 rounded-full text-sm flex items-center gap-2 ${
+              textToSpeech || talkOverVoice
+                ? 'bg-green-100 text-green-700'
+                : 'bg-yellow-100 text-yellow-700'
+            }`}>
+              {textToSpeech || talkOverVoice ? '🔊' : '🔇'}
+              <span>
+                {textToSpeech || talkOverVoice
+                  ? 'Voice guide active'
+                  : 'Voice guide off'
+                }
+              </span>
+            </div>
+          </div>
         </div>
 
         <Card className="p-8 shadow-card animate-scale-in">
           {/* Name Input */}
           <div className="mb-8">
-            <label className="text-lg font-semibold text-foreground mb-4 block flex items-center gap-2">
+            <label className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
               <User className="w-5 h-5" />
               What's your name?
             </label>
@@ -139,6 +168,31 @@ const CreateProfile = () => {
 
           {/* Create Button */}
           <div className="text-center">
+            {/* TTS Debug Button */}
+            <div className="mb-4">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  console.log('Testing TTS...');
+                  speak("This is a test of the text to speech system");
+                }}
+                className="mr-2"
+              >
+                Test TTS 🔊
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  console.log('Testing Description TTS...');
+                  speakDescription("This is a test of the description voice system");
+                }}
+              >
+                Test Description 📢
+              </Button>
+            </div>
+
             <Button
               variant="child"
               size="child"
