@@ -48,24 +48,23 @@ const ProfileSelection = () => {
     {
       id: "1",
       name: "Alex",
-      avatar: "👦",
-      color: "from-blue-400 to-blue-600",
+      avatar: "🐼",
       progress: 75,
       lastPlayed: "Sharing Stories",
     },
     {
       id: "2",
       name: "Maya",
-      avatar: "👧",
-      color: "from-indigo-400 to-indigo-600",
+      avatar: "🐻",
+
       progress: 90,
       lastPlayed: "Making Friends",
     },
     {
       id: "3",
       name: "Sam",
-      avatar: "🧒",
-      color: "from-blue-500 to-indigo-500",
+      avatar: "🐐",
+
       progress: 60,
       lastPlayed: "Big Feelings",
     },
